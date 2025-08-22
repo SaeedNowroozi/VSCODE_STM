@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build (Debug)",
+      "type": "shell",
+      "command": "cmake --build ${workspaceFolder}/build/Debug --parallel",
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Make BIN from ELF",
+      "type": "shell",
+      "command": "arm-none-eabi-objcopy -O binary ${workspaceFolder}/build/Debug/vscode_stm.elf ${workspaceFolder}/build/Debug/vscode_stm.bin"
+    },
+    {
+      "label": "Flash with st-flash (BIN)",
+      "type": "shell",
+      "dependsOn": ["Build (Debug)", "Make BIN from ELF"],
+      "command": "st-flash write ${workspaceFolder}/build/Debug/vscode_stm.bin 0x08000000"
+    },
+    {
+      "label": "Flash with OpenOCD (ELF)",
+      "type": "shell",
+      "dependsOn": ["Build (Debug)"],
+      "command": "openocd -f interface/stlink.cfg -f target/stm32f4x.cfg -c \"program ${workspaceFolder}/build/Debug/vscode_stm.elf verify reset exit\""
+    }
+  ]
+}

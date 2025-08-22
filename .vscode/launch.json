@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+"configurations": [
+    {
+        "name": "Debug STM32F4 SWO",
+        "type": "cortex-debug",
+        "request": "launch",
+        "servertype": "openocd",
+        "executable": "${workspaceFolder}/build/Debug/vscode_stm.elf",
+        "device": "STM32F407VG",
+        "configFiles": [
+            "interface/stlink.cfg",
+            "target/stm32f4x.cfg"
+        ],
+        "runToEntryPoint": "main",
+        "swoConfig": {
+            "enabled": true,
+            "cpuFrequency": 168000000,
+            "swoFrequency": 2000000,
+            "source": "probe"
+        }
+    }
+]
+}

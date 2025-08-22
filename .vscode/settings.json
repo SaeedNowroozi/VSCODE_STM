@@ -1,0 +1,13 @@
+{
+  "cmake.generator": "Ninja",
+  "cmake.buildDirectory": "${workspaceFolder}/build/Debug",
+  "cmake.configureOnOpen": true,
+
+  // مسیر ابزارها
+  "cortex-debug.gdbPath": "arm-none-eabi-gdb",
+  "cortex-debug.armToolchainPath": "/usr/bin",
+  "cortex-debug.openocdPath": "/usr/bin/openocd",
+
+  // نمایش کامل لاگ دیباگ
+  "cortex-debug.showDevDebugOutput": "both"
+}
