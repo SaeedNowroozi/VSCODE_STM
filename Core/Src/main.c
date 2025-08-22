@@ -117,7 +117,7 @@ k +=1;
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    HAL_GPIO_WritePin(LD3_GPIO_Port,LD3_Pin, GPIO_PIN_SET);
+  //  HAL_GPIO_WritePin(LD3_GPIO_Port,LD3_Pin, GPIO_PIN_SET);
     HAL_GPIO_WritePin(LD4_GPIO_Port,LD4_Pin, GPIO_PIN_SET );
     HAL_Delay(2000);
     k += 1;
@@ -414,3 +414,4 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
+
